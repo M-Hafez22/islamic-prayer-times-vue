@@ -1,13 +1,17 @@
 <template>
-  <Clock />
-  <PrayTimes />
-  <Footer />
+  <div :class="[theme, 'app']">
+    <Clock />
+    <PrayTimes />
+    <Footer />
+  </div>
 </template>
 
 <script>
 import Clock from "./components/Clock.vue";
 import PrayTimes from "./components/prayerTimes/PrayTimes.vue";
 import Footer from "./components/footer/Footer.vue";
+
+import { mapState } from "vuex";
 
 export default {
   name: "App",
@@ -16,16 +20,8 @@ export default {
     PrayTimes,
     Footer,
   },
+  computed: {
+    ...mapState(["theme"]),
+  },
 };
 </script>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
