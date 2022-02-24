@@ -12,7 +12,11 @@
       :time="timings[pray].slice(0, 5)"
     />
   </ul>
-  <RemaineTime />
+  <RemaineTime
+    v-if="!loading"
+    :praysNames="praysNames"
+    :praysTimes="praysTimes"
+  />
 </template>
 
 <script>
