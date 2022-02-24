@@ -4,7 +4,14 @@
     <h1>Loading...</h1>
   </div>
   <HijriDate v-if="!loading" :hijri="hijri" :gregorian="gregorian" />
-  <PrayCard />
+  <ul class="prayList" v-if="!loading">
+    <PrayCard
+      v-for="pray in praysNames"
+      :key="pray"
+      :name="pray"
+      :time="timings[pray].slice(0, 5)"
+    />
+  </ul>
   <RemaineTime />
 </template>
 
