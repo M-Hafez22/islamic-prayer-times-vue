@@ -1,15 +1,16 @@
 <template>
-  <h1>Islamc Prayer Time</h1>
+  <Clock />
 </template>
 
 <script>
+import Clock from "./components/Clock.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    
-  }
-}
+    Clock,
+  },
+};
 </script>
 
 <style lang="scss">
