@@ -1,11 +1,13 @@
 <template>
   <footer>
-    <button @click="toggleSettings">{{isOpen ? "Close" : "Open"}}</button>
-    <p v-show="isOpen">Settings</p>
+    <button class="setting-btn" @click="toggleSettings">⚙️</button>
+    <AppSettings v-show="isOpen" />
   </footer>
 </template>
 
 <script>
+import AppSettings from "./AppSettings.vue";
+
 export default {
   name: "Footer",
   data() {
@@ -17,6 +19,9 @@ export default {
     toggleSettings() {
       this.isOpen = !this.isOpen;
     },
+  },
+  components: {
+    AppSettings,
   },
 };
 </script>
