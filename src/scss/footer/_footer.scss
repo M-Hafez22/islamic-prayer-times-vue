@@ -1,0 +1,52 @@
+@mixin footer() {
+    width: 100vw;
+    overflow-y: hidden;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.5s ease-in-out;
+
+
+    .setting-btn {
+        align-self: flex-end;
+        margin: 0 0.5em;
+        font-size: 3em;
+        background: none;
+        border: none;
+        color: darken($active-clr, 0);
+        cursor: pointer;
+    }
+
+    .active {
+        @include active($active-clr-light);
+    }
+}
+
+.footerLight {
+    @include footer();
+
+    .active {
+        @include active($active-clr-light);
+    }
+}
+
+.footerDark {
+    @include footer();
+
+    .active {
+        @include active($active-clr-dark);
+    }
+}
+
+// Apply hover effect to non-touch screens only
+@media (hover: hover), (pointer: fine) {
+    .setting-btn {
+        transition: all 0.5s ease-in-out;
+
+        &:hover {
+            transform: translateY(100%);
+            opacity: 100;
+            transform: rotate(180deg);
+        }
+    }
+}

@@ -1,0 +1,28 @@
+@mixin options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .option {
+    font-size: 1.5em;
+    padding: 0.15em;
+    margin: 0.25em;
+    border-radius: $border-radius;
+  }
+}
+
+.optionsLight {
+  @include options;
+
+
+  .active {
+    @include active($active-clr-light);
+  }
+}
+
+.optionsDark {
+  @include options;
+
+  .active {
+    @include active($active-clr-dark);
+  }
+}

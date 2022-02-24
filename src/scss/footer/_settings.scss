@@ -1,0 +1,15 @@
+.settings {
+  min-width: 100vw;
+  padding: 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+}
+.showSettings {
+  transform: translateY(0%);
+}
+
+.hideSettings {
+  transform: translateY(150%);
+}
