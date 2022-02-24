@@ -1,17 +1,20 @@
 <template>
   <Clock />
   <PrayTimes />
+  <Footer />
 </template>
 
 <script>
 import Clock from "./components/Clock.vue";
 import PrayTimes from "./components/prayerTimes/PrayTimes.vue";
+import Footer from "./components/footer/Footer.vue";
 
 export default {
   name: "App",
   components: {
     Clock,
     PrayTimes,
+    Footer,
   },
 };
 </script>
