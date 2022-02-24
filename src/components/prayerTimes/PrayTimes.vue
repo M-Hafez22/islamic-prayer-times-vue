@@ -3,10 +3,7 @@
   <div v-if="loading">
     <h1>Loading...</h1>
   </div>
-  <div v-else>
-    <h1>Data is Loaded</h1>
-  </div>
-  <HijriDate />
+  <HijriDate v-if="!loading" :hijri="hijri" :gregorian="gregorian" />
   <PrayCard />
   <RemaineTime />
 </template>
