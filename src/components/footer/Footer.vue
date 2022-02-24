@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer :class="theme === 'dark' ? 'footerDark' : 'footerLight'">
     <button class="setting-btn" @click="toggleSettings">⚙️</button>
     <AppSettings v-show="isOpen" />
   </footer>
@@ -7,6 +7,7 @@
 
 <script>
 import AppSettings from "./AppSettings.vue";
+import { mapState } from "vuex";
 
 export default {
   name: "Footer",
@@ -22,6 +23,9 @@ export default {
   },
   components: {
     AppSettings,
+  },
+  computed: {
+    ...mapState(["theme"]),
   },
 };
 </script>
