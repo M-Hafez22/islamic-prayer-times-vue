@@ -17,6 +17,7 @@
     :praysNames="praysNames"
     :praysTimes="praysTimes"
   />
+  <p>Time Zone is {{ timeZone }}</p>
 </template>
 
 <script>
@@ -41,6 +42,7 @@ export default {
       remaineTime: "",
       nextPray: 1,
       date: Math.floor(Date.now() / 1000),
+      timeZone: "",
     };
   },
   components: {
@@ -92,6 +94,7 @@ export default {
     this.praysTimes = Object.values(data.data.timings);
     this.gregorian = data.data.date.gregorian;
     this.hijri = data.data.date.hijri;
+    this.timeZone = data.data.meta.timezone;
   },
 };
 </script>
