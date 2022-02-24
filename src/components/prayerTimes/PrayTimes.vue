@@ -12,16 +12,27 @@
 </template>
 
 <script>
-import HijriDate from "./HijriDate.vue";
 import PrayCard from "./PrayCard.vue";
 import RemaineTime from "./RemaineTime.vue";
+import HijriDate from "./HijriDate.vue";
+import { mapState } from "vuex";
 
 export default {
   name: "PrayTimes",
-  date() {
+  data() {
     return {
-      loaded: false,
-      prayData: {},
+      Loading: true,
+      data: {},
+      timings: {},
+      praysTimes: [],
+      praysNames: [],
+      latitude: "51.508515",
+      longitude: "-0.1254872",
+      gregorian: {},
+      hijri: {},
+      remaineTime: "",
+      nextPray: 1,
+      date: Math.floor(Date.now() / 1000),
     };
   },
   components: {
@@ -29,13 +40,22 @@ export default {
     PrayCard,
     RemaineTime,
   },
+  mounted() {
+    setInterval(() => this.setTime(), 1000);
+  },
+  methods: {
+    setTime() {
+      this.date = new Date();
+    },
+  },
+  computed: {
+    ...mapState(["theme"]),
+  },
   async created() {
-    let latitude = "51.508515";
-    let longitude = "-0.1254872";
     // Get Current Position
     const success = (position) => {
-      latitude = position.coords.latitude;
-      longitude = position.coords.longitude;
+      this.latitude = position.coords.latitude;
+      this.longitude = position.coords.longitude;
     };
     // Print error
     const error = (position) => {
@@ -46,17 +66,24 @@ export default {
       ? console.log("Geolocation is not supported by your browser")
       : navigator.geolocation.getCurrentPosition(success, error);
 
-    console.log("latitude", latitude);
     // GET request using fetch with async/await
     const response = await fetch(
-      `https://api.aladhan.com/v1/timings/${Math.floor(
-        Date.now() / 1000
-      )}?latitude=${latitude}&longitude=${longitude}&method=5`
+      `https://api.aladhan.com/v1/timings/${this.date}?latitude=${this.latitude}&longitude=${this.longitude}&method=5`
     );
     const data = await response.json();
-    // this.prayData = data.data;
-    console.log(data.data);
-    this.loaded = true;
+    this.data = data.data;
+    this.Loading = false;
+
+    // additional data to be removed
+    const additional = ["Sunrise", "Imsak", "Midnight", "Sunset"];
+    // Remove additional data
+    additional.forEach((i) => delete data.data.timings[i]);
+    // Set Local states
+    this.timings = data.data.timings;
+    this.praysNames = Object.keys(data.data.timings);
+    this.praysTimes = Object.values(data.data.timings);
+    this.gregorian = data.data.date.gregorian;
+    this.hijri = data.data.date.hijri;
   },
 };
 </script>
