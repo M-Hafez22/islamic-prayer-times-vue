@@ -1,7 +1,7 @@
 <template>
-  <p class="remainTime">
-     {{ remainTimeMsg }} {{ prayInLang }} 
-    <span> {{ remaineTime }}</span>
+  <p :class="theme === 'dark' ? 'remainTimeDark' : 'remainTimeLight'">
+    {{ remainTimeMsg }} {{ prayInLang }}
+    <span class="active"> {{ remaineTime }}</span>
   </p>
 </template>
 
@@ -24,7 +24,7 @@ export default {
     }, 1000);
   },
   computed: {
-    ...mapState(["lang", "prayNames_ar"]),
+    ...mapState(["lang", "prayNames_ar", "theme"]),
     remainTimeMsg() {
       return this.lang === "en" ? "Remaining time to " : "يتبقى على رفع أذان ";
     },
