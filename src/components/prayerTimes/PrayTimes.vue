@@ -75,9 +75,10 @@ watch(apiUrl, fetchData);
     <HijriDate v-if="loaded" :hijri="hijri" :gregorian="gregorian" />
     <ul class="prayList" v-if="loaded">
       <PrayCard
-        v-for="pray in praysNames"
+        v-for="(pray, index) in praysNames"
         :key="pray"
         :name="pray"
+        :index="index"
         :time="timings[pray].slice(0, 5)"
       />
     </ul>
