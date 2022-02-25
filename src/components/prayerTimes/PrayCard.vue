@@ -1,5 +1,5 @@
 <template>
-  <li>
+  <li :class="theme === 'dark' ? 'prayCardDark' : 'prayCardLight'">
     <h3>{{ translateNames }}</h3>
     <h3>{{ time }}</h3>
   </li>
@@ -12,7 +12,7 @@ export default {
   name: "PrayCard",
   props: ["name", "time", "index"],
   computed: {
-    ...mapState(["lang", "prayNames_ar"]),
+    ...mapState(["lang", "prayNames_ar", "theme"]),
     translateNames() {
       return this.lang === "en" ? this.name : this.prayNames_ar[this.index];
     },
