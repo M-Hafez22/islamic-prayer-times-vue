@@ -1,45 +1,43 @@
 .app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 100vh;
-    width: 100vw;
-    text-align: center;
-    color: $clr;
-    font-size: 11px;
-    transition: all 0.5s ease;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  text-align: center;
+  color: $clr;
+  font-size: 11px;
+  transition: all 0.5s ease;
+}
+
+.dark {
+  background-color: $clr-dark;
+  color: $clr-light;
+}
+
+.light {
+  background-color: $clr-light;
+  color: $clr-dark;
+}
+
+@media only screen and (min-width: 360px) {
+  .app {
+    font-size: 12px;
   }
-  
-  .dark{
-    background-color: $clr-dark;
-    color: $clr-light;
+}
+
+@media only screen and (min-width: 700px) {
+  .app {
+    font-size: 14px;
   }
-  
-  .light{
-    background-color: $clr-light;
-    color: $clr-dark;
+}
+
+@media only screen and (min-width: 900px) {
+  .app {
+    font-size: 15px;
   }
-  
-  @media only screen and (min-width: 360px) {
-    .app {
-      font-size: 12px;
-    }
-  }
-  
-  
-  @media only screen and (min-width: 700px) {
-    .app {
-      font-size: 14px;
-    }
-  }
-  
-  @media only screen and (min-width: 900px) {
-    .app {
-      font-size: 15px;
-    }
-  }
-  
+}
