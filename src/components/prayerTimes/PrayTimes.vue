@@ -80,6 +80,7 @@ watch(apiUrl, fetchData);
         :name="pray"
         :index="index"
         :time="timings[pray].slice(0, 5)"
+        :praysTimes="praysTimes"
       />
     </ul>
     <RemaineTime
