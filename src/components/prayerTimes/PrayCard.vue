@@ -36,10 +36,3 @@ export default {
   },
 };
 </script>
-
-<style scoped lang="scss">
-.active {
-  color: aqua;
-  box-shadow: 0px 0px 8px rgb(0, 195, 255);
-}
-</style>

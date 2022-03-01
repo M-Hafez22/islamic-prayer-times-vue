@@ -42,10 +42,17 @@
     padding: 0.25em 0;
   }
 }
+
+@mixin active($color) {
+  color: $color;
+  box-shadow: 0px 0px 8px $color;
+}
+
+
 .prayCardLight {
   @include prayCard;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.48);
-  .active {
+  &.active {
     @include active($active-clr-light);
   }
 }
@@ -53,7 +60,7 @@
 .prayCardDark {
   @include prayCard;
   box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.48);
-  .active {
+   &.active {
     @include active($active-clr-dark);
   }
 }
