@@ -70,7 +70,6 @@ watch(apiUrl, fetchData);
     <div v-if="!loaded">
       <h1>Loading...</h1>
     </div>
-    <h1>{{ theme }}</h1>
 
     <HijriDate v-if="loaded" :hijri="hijri" :gregorian="gregorian" />
     <ul class="prayList" v-if="loaded">
