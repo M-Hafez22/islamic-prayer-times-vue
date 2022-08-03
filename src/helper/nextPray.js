@@ -7,12 +7,6 @@ import { getTimeFormat } from "./formatTime";
  * @returns {[string, number]} the remaining time in string format, the index of the next pray in the pray list
  */
 
-// Get current time
-// let date
-// setInterval(() => {
-//   date = new Date()
-// }, 1000)
-
 export default function nextPray(timesArr) {
   // Get current time
 
