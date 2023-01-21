@@ -48,7 +48,14 @@ async function fetchData() {
   loaded.value = true;
 
   // additional data to be removed
-  const additional = ["Sunrise", "Imsak", "Midnight", "Sunset"];
+  const additional = [
+    "Sunrise",
+    "Imsak",
+    "Midnight",
+    "Sunset",
+    "Firstthird",
+    "Lastthird",
+  ];
   // Remove additional data
   additional.forEach((i) => delete data.data.timings[i]);
   // Set Local states
